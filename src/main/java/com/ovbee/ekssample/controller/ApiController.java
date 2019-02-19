@@ -4,6 +4,7 @@ import com.ovbee.ekssample.model.IpInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,8 @@ public class ApiController {
     public IpInfo ipInformation(Model model, HttpServletRequest request) {
         String remoteAddress = request.getRemoteAddr();
         String localAddress = request.getLocalAddr();
+        String headerIp = request.getHeader("X-FORWARDED-FOR");
+        logger.info("---headerIp---" + headerIp);
         logger.info("---remoteAddress---" + remoteAddress);
         logger.info("---localAddress---" + localAddress);
         IpInfo info = new IpInfo();

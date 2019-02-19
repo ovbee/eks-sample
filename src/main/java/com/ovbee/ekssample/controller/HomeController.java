@@ -21,6 +21,8 @@ public class HomeController {
         logger.info("---localAddress---" + localAddress);
         model.addAttribute("clientIp", remoteAddress);
         model.addAttribute("remoteIp", localAddress);
+        String headerIp = request.getHeader("X-FORWARDED-FOR");
+        logger.info("---headerIp---" + headerIp);
         return "/home";
     }
 }
