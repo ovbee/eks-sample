@@ -1,10 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/blank">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>EKS Sample</title>
 </head>
 <body>
-$END$
+<!--<section layout:fragment="content">-->
+<section layout:fragment="content">
+    <script>
+    /*
+    var xhr = new XMLHttpRequest();
+    xhr.open('post', 'https://d2il5njt5c2fwk.cloudfront.net/v1/tt?Expires=1553050939&Signature=BRS39Rg8dgytYmtPh39wXj0-6JV386f8Mgm5yNrhapvohBh~k9qkRaJC7w5LX~8vcNjPDHtXclPBtbOr1hwvq604pkcOvoBUdzscethg99cQd8sN1vOgykW~j0RoRQFGznqhQPVP2KjJ~594S5xH4kAzjTTEtoD-Hk9883NvGVtJuQ2rOKO2neon5tanu8Q0txsOxvt423kJxKzkOq-wU4VWzdQV0FC5fsg2F06it9iPiA2Mcioo-9MIsX9cW2ebWj0nvfv4oo1RAzHl17WANLXqj-7vtGoPiAfYH-sOUR4cd9~YI~47KsibFlMa7dJdsUH0uR8DcWXfkJFn~BUMGA__&Key-Pair-Id=APKAIRR2YNKQ5P4WT53A');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Authorization', 'allow');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+          var responseText = xhr.responseText;
+          console.log('Response is ' + responseText);
+          var data = JSON.parse(responseText);
+          if(data){
+            var clientIp = data.clientIp;
+            var remoteIp = data.remoteIp;
+            if(clientIp){
+              document.getElementById('client_ip').innerHTML = clientIp;
+            }
+            if(remoteIp){
+              document.getElementById('remote_ip').innerHTML = remoteIp;
+            }
+          }
+      }
+        else {
+            console.log('Request failed.  Returned status of ' + xhr.status);
+        }
+    };
+    xhr.send();
+    */
+    </script>
+    <style>
+
+	</style>
+    <div class="widget-wrap">
+        <div class="widget-header block-header margin-bottom-0 clearfix">
+            <h2>
+                Your IP: <span id="client_ip" th:text="${clientIp}"></span>,
+                Remote IP: <span id="remote_ip" th:text="${remoteIp}"></span>
+            </h2>
+        </div>
+        <div class="widget-container">
+            <div class="widget-content j-forms">
+                <div class="wizard-breadcrumb number-style">
+
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
